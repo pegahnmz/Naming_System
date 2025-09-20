@@ -1,0 +1,53 @@
+{
+  "companies": [
+    { "name": "رابین تجارت", "code": "RT" },
+    { "name": "رابین فناوری", "code": "RF" },
+    { "name": "مشترک", "code": "COM" }
+  ],
+  "departments": [
+    { "name": "مالی", "code": "FIN" },
+    { "name": "اداری", "code": "ADM" },
+    { "name": "حقوقی", "code": "LEGAL" },
+    { "name": "فروش و بازاریابی", "code": "SALES" },
+    { "name": "منابع انسانی", "code": "HR" },
+    { "name": "روابط عمومی و تبلیغات", "code": "PR" },
+    { "name": "فنی و مهندسی", "code": "TECH" },
+    { "name": "مشتریان", "code": "CS" },
+    { "name": "تحقیق و توسعه", "code": "R&D" },
+    { "name": "نمایندگی", "code": "AGENCY" },
+    { "name": "پارک", "code": "PARK" },
+    { "name": "رهبری", "code": "LEAD" },
+    { "name": "هوش مصنوعی", "code": "AI" }
+  ],
+  "contentTypes": [
+    { "name": "آیین نامه و سیاست", "code": "POL" },
+    { "name": "رویه", "code": "PRC" },
+    { "name": "عکس", "code": "IMG" },
+    { "name": "فایل متنی عمومی", "code": "TXT" },
+    { "name": "نقشه، پلان", "code": "MAP" },
+    { "name": "صورت جلسه، یادداشت جلسات", "code": "MIN" },
+    { "name": "برنامه نویسی و الگوریتم", "code": "CODE" },
+    { "name": "گزارش", "code": "RPT" },
+    { "name": "فیلم", "code": "VID" },
+    { "name": "قرارداد", "code": "CTR" },
+    { "name": "طراحی (صنعتی و گرافیکی)", "code": "DSG" },
+    { "name": "فاکتور", "code": "INV" },
+    { "name": "فایل ارائه", "code": "PRES" },
+    { "name": "فرم‌ها", "code": "FORMS" },
+    { "name": "برنامه‌ریزی (گانت چارت،تقویم،استراتژی)", "code": "PLN" },
+    { "name": "پروپوزال و پیشنهاده", "code": "PROP" },
+    { "name": "داده،اکسل", "code": "DATA" },
+    { "name": "نامه", "code": "LTR" },
+    { "name": "چک لیست اجرایی", "code": "CHK" }
+  ],
+  "statuses": [
+    { "name": "نهایی", "code": "FIN" },
+    { "name": "بایگانی شده", "code": "ARC" },
+    { "name": "تایید شده", "code": "APP" },
+    { "name": "بازبینی توسط شخص دیگر", "code": "REV" },
+    { "name": "پیش‌نویس", "code": "DRF" },
+    { "name": "خام", "code": "RAW" },
+    { "name": "در حال ویرایش", "code": "EDIT" },
+    { "name": "نسخه امضا شده رسمی", "code": "SGN" }
+  ]
+}

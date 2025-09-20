@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سامانه نام‌گذاری اسناد</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">سامانه نام‌گذاری اسناد</h1>
+            <div class="theme-toggle">
+                <label class="theme-switch">
+                    <input type="checkbox" id="theme-toggle-checkbox">
+                    <span class="theme-slider">
+                        <i class="fas fa-moon theme-icon-dark"></i>
+                        <i class="fas fa-sun theme-icon-light"></i>
+                    </span>
+                </label>
+            </div>
+        </div>
+        
+        <form id="document-form" class="form">
+            <!-- Date field -->
+            <div class="form-group">
+                <label for="date">تاریخ </label>
+                <div class="date-input-container">
+                    <input type="text" id="date" class="form-control" placeholder="۱۴۰۳/۰۳/۱۵" pattern="[۰-۹0-9]{4}/[۰-۹0-9]{2}/[۰-۹0-9]{2}">
+                </div>
+                <span class="error-message" id="date-error">فرمت تاریخ باید YYYY/MM/DD باشد</span>
+            </div>
+            
+            <!-- Project name field -->
+            <div class="form-group">
+                <label for="project-name"> پروژه/موضوع (انگلیسی)</label>
+                <input type="text" id="project-name" class="form-control " placeholder="نام پروژه" pattern="[A-Za-z0-9_\\-\\ ]+" required>
+                <span class="error-message" id="project-name-error">فقط حروف و اعداد انگلیسی و _ و - و فاصله مجاز است</span>
+            </div>
+            
+            <!-- Short description field -->
+            <div class="form-group">
+                <label for="description">توضیح کوتاه (انگلیسی)</label>
+                <input type="text" id="description" class="form-control" placeholder="توضیحی کوتاه" pattern="[A-Za-z0-9_\\-\\ ]+" required>
+                <span class="error-message" id="description-error">فقط حروف و اعداد انگلیسی و _ و - و فاصله مجاز است</span>
+            </div>
+            
+            <!-- Company name field -->
+            <div class="form-group">
+                <label for="company"> شرکت</label>
+                <div class="custom-select" id="company-select">
+                    <div class="select-selected plch" id="company-selected">انتخاب کنید...</div>
+                    <div class="select-items" id="company-items">
+                        
+                    </div>
+                </div>
+                <input type="hidden" id="company" required>
+            </div>
+            
+            <!-- Department field -->
+            <div class="form-group">
+                <label for="department" >دپارتمان</label>
+                <div class="custom-select" id="department-select">
+                    <div class="select-selected plch" id="department-selected">انتخاب کنید...</div>
+                    <div class="select-items" id="department-items"></div>
+                </div>
+                <input type="hidden" id="department" required>
+            </div>
+            
+            <!-- Content type field -->
+            <div class="form-group">
+                <label for="content-type">نوع محتوا</label>
+                <div class="custom-select" id="content-type-select">
+                    <div class="select-selected plch" id="content-type-selected">انتخاب کنید...</div>
+                    <div class="select-items" id="content-type-items"></div>
+                </div>
+                <input type="hidden" id="content-type" required>
+            </div>
+            
+            <!-- Status field -->
+            <div class="form-group">
+                <label for="status">وضعیت</label>
+                <div class="custom-select" id="status-select">
+                    <div class="select-selected plch" id="status-selected">انتخاب کنید...</div>
+                    <div class="select-items" id="status-items"></div>
+                </div>
+                <input type="hidden" id="status" required>
+            </div>
+            
+            <!-- Final file code field -->
+            <div class="form-group">
+                <label for="final-code">کد فایل نهایی</label>
+                <div class="final-code-container">
+                    <input type="text" id="final-code" class="form-control no-cursor" readonly>
+                    <button type="button" id="copy-btn" class="copy-btn" disabled>
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Save button -->
+            <button type="submit" id="save-btn" class="btn-primary" disabled>ذخیره نام فایل</button>
+        </form>
+        
+        <!-- Saved files section -->
+        <div class="saved-files">
+            <h2>فایل‌های ذخیره شده</h2>
+            <div id="files-list" class="files-list">
+                <p class="no-files">فایلی ذخیره نشده است</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Persian calendar -->
+    <div id="calendar-modal" class="modal">
+        <div class="modal-content">
+            <div class="calendar-header">
+                <div class="calendar-nav-btn-right">
+                    <button id="next-year" class="calendar-nav-btn year-nav ">
+                        <i class="fas fa-angle-double-right"></i>
+                    </button>
+                    <button id="next-month" class="calendar-nav-btn ">
+                        <i class="fas fa-angle-right"></i>
+                    </button>
+                
+                </div>
+                <div class="calendar-title">
+                    <span id="calendar-month" class="calendar-month"></span>
+                    <span id="calendar-year" class="calendar-year"></span>
+                </div>
+                <div class="calendar-nav-btn-left">
+                    <button id="prev-month" class="calendar-nav-btn">
+                        <i class="fas fa-angle-left"></i>
+                    </button>
+                    <button id="prev-year" class="calendar-nav-btn year-nav">
+                        <i class="fas fa-angle-double-left"></i>
+                    </button>
+                </div>
+
+            </div>
+            <div class="calendar-week-days">
+                <div>ش</div>
+                <div>ی</div>
+                <div>د</div>
+                <div>س</div>
+                <div>چ</div>
+                <div>پ</div>
+                <div>ج</div>
+            </div>
+            <div id="calendar-days" class="calendar-days"></div>
+        </div>
+    </div>
+
+    <!-- Copy notification -->
+    <div id="copy-notification" class="copy-notification">
+        <span>کد فایل کپی شد!</span>
+    </div>
+
+    <!-- Save notification -->
+    <div id="save-notification" class="copy-notification">
+        <span>فایل با موفقیت ذخیره شد!</span>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
